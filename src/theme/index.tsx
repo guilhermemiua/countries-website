@@ -58,13 +58,19 @@ const fontWeights = {
   black: 900
 }
 
+const fonts = {
+  heading: `'Nunito Sans', sans-serif`,
+  body: `'Nunito Sans', sans-serif`
+}
+
 const theme = extendTheme({
   colors,
   config,
   styles,
   fontSizes,
   fontWeights,
-  breakpoints
+  breakpoints,
+  fonts
 })
 
 export default theme

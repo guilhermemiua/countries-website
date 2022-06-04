@@ -22,7 +22,7 @@ const Header = () => {
       as="header"
       w="100%"
       bg={useColorModeValue('lightElements', 'darkElements')}
-      paddingY={5}
+      paddingY={7}
       borderBottomWidth={'1px'}
       borderBottomStyle="solid"
       borderBottomColor={useColorModeValue('lightElements', 'darkElements')}
@@ -32,10 +32,10 @@ const Header = () => {
           <Heading
             as={'h2'}
             color={useColorModeValue('lightText', 'darkText')}
-            fontWeight={'bold'}
+            fontWeight={'extrabold'}
             fontSize={{
               base: 'lg',
-              md: '3xl'
+              md: '2xl'
             }}
           >
             Where in the world?

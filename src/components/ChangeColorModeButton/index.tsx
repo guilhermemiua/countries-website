@@ -15,9 +15,9 @@ const ChangeColorModeButton = () => {
       )}
       fontSize={{
         base: 'lg',
-        md: 'xl'
+        md: 'lg'
       }}
-      fontWeight={'normal'}
+      fontWeight={'light'}
     >
       {colorMode === 'light' ? 'Dark Mode' : 'Light Mode'}
     </Button>
