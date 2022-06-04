@@ -1,13 +1,26 @@
-import { useColorMode } from '@chakra-ui/react'
+import { useColorMode, useColorModeValue } from '@chakra-ui/react'
+import { Button, Icon } from '@chakra-ui/react'
+import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5'
 
 const ChangeColorModeButton = () => {
   const { colorMode, toggleColorMode } = useColorMode()
   return (
-    <header>
-      <button onClick={toggleColorMode}>
-        Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
-      </button>
-    </header>
+    <Button
+      onClick={toggleColorMode}
+      variant="link"
+      color={useColorModeValue('lightText', 'darkText')}
+      leftIcon={useColorModeValue(
+        <Icon as={IoMoonOutline} />,
+        <Icon as={IoSunnyOutline} />
+      )}
+      fontSize={{
+        base: 'lg',
+        md: 'xl'
+      }}
+      fontWeight={'normal'}
+    >
+      {colorMode === 'light' ? 'Dark Mode' : 'Light Mode'}
+    </Button>
   )
 }
 

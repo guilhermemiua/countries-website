@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import ChangeColorModeButton from '../components/ChangeColorModeButton'
+import Header from '../components/Header'
 
 const Home: NextPage = () => {
   return (
@@ -11,7 +11,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <ChangeColorModeButton />
+      <Header />
     </>
   )
 }
