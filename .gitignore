@@ -19,3 +19,6 @@ typings/
 
 # Next.js build output
 .next
+
+# Jest
+coverage
