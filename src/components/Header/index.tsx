@@ -1,20 +1,6 @@
 import ChangeColorModeButton from '../ChangeColorModeButton'
 import { Box, useColorModeValue, Flex, Heading } from '@chakra-ui/react'
-import { ReactNode } from 'react'
-
-const Container = ({
-  children,
-  margin
-}: {
-  children: ReactNode
-  margin?: string
-}) => {
-  return (
-    <Box maxW={'90%'} margin={margin}>
-      {children}
-    </Box>
-  )
-}
+import Container from '../Container'
 
 const Header = () => {
   return (
