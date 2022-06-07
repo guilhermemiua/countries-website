@@ -15,7 +15,7 @@ const CountryCard = ({ country }: CountryCardProps) => {
       borderWidth={'1px'}
       borderStyle="solid"
       borderColor={useColorModeValue('lightElements', 'darkElements')}
-      width={{ base: 320, md: 358.4 }}
+      width={{ base: 320, lg: 358.4 }}
       overflow="hidden"
       mb={10}
     >

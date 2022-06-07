@@ -26,7 +26,11 @@ const Home: NextPage<HomeProps> = ({ countries }) => {
 
       <Container margin="0 auto">
         <Grid
-          templateColumns={{ base: 'repeat(1, 0fr)', md: 'repeat(4, 0fr)' }}
+          templateColumns={{
+            base: 'repeat(1, 0fr)',
+            md: 'repeat(2, 0fr)',
+            lg: 'repeat(4, 0fr)'
+          }}
           justifyContent={{ base: 'center', md: 'space-between' }}
           mt={5}
         >
