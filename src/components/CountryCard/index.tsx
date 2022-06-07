@@ -1,8 +1,13 @@
 import { Box, useColorModeValue, Flex } from '@chakra-ui/react'
 import Image from 'next/image'
+import { Country } from '../../types/Country'
 import InfoBox from './Info'
 
-const CountryCard = () => {
+type CountryCardProps = {
+  country: Country
+}
+
+const CountryCard = ({ country }: CountryCardProps) => {
   return (
     <Box
       bg={useColorModeValue('lightElements', 'darkElements')}
@@ -10,18 +15,19 @@ const CountryCard = () => {
       borderWidth={'1px'}
       borderStyle="solid"
       borderColor={useColorModeValue('lightElements', 'darkElements')}
-      width={'max-content'}
+      width={{ base: 320, md: 358.4 }}
       overflow="hidden"
+      mb={10}
     >
       <Flex direction={'column'}>
         <Image
-          src="https://flagcdn.com/w320/bv.png"
-          alt="Germany"
-          width={320}
-          height={233}
-          layout="fixed"
+          src={country.flag}
+          alt={country.name}
+          width={358.4}
+          height={260.96}
+          layout="responsive"
         />
-        <InfoBox />
+        <InfoBox country={country} />
       </Flex>
     </Box>
   )

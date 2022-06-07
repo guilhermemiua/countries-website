@@ -1,3 +1,7 @@
 export type Country = {
-  id: string
+  name: string
+  flag: string
+  population: number
+  capital: string
+  region: string
 }
