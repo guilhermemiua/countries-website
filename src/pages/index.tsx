@@ -6,6 +6,7 @@ import CountryCard from '../components/CountryCard'
 import Header from '../components/Header'
 import { getCountries } from '../services/countries'
 import { Country } from '../types/Country'
+import { sort } from 'fast-sort'
 
 type HomeProps = {
   countries: Country[]
@@ -49,9 +50,13 @@ export async function getServerSideProps() {
     region: country?.region
   }))
 
+  const countriesSorted: Country[] = sort(countries).asc(
+    (country) => country.name
+  )
+
   return {
     props: {
-      countries
+      countries: countriesSorted
     }
   }
 }
