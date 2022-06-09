@@ -21,13 +21,14 @@ type HomeProps = {
   countries: Country[]
 }
 
-const countriesMapper = (countries: GetCountriesResponse[]) => {
+const countriesMapper = (countries: GetCountriesResponse[]): Country[] => {
   const countriesMapped: Country[] = countries.map((country) => ({
     name: country?.name?.common,
     flag: country?.flags?.svg,
     population: country?.population,
     capital: country?.capital?.[0] ?? '',
-    region: country?.region
+    region: country?.region,
+    cca3: country?.cca3
   }))
 
   const countriesSorted: Country[] = sort(countriesMapped).asc(
