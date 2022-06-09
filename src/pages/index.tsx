@@ -10,7 +10,6 @@ import type { NextPage, NextPageContext } from 'next'
 import Head from 'next/head'
 import Container from '../components/Container'
 import CountryCard from '../components/CountryCard'
-import Header from '../components/Header'
 import { getCountries, GetCountriesResponse } from '../services/countries'
 import { Country } from '../types/Country'
 import { sort } from 'fast-sort'
@@ -76,8 +75,6 @@ const Home: NextPage<HomeProps> = ({ countries }) => {
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-
-      <Header />
 
       <Container margin="0 auto">
         <Flex
