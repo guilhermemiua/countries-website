@@ -3,7 +3,7 @@ export type GetCountriesResponse = {
     common: string
   }
   flags: {
-    png: string
+    svg: string
   }
   population: number
   capital: string[]

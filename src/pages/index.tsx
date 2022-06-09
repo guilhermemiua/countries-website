@@ -24,7 +24,7 @@ type HomeProps = {
 const countriesMapper = (countries: GetCountriesResponse[]) => {
   const countriesMapped: Country[] = countries.map((country) => ({
     name: country?.name?.common,
-    flag: country?.flags?.png,
+    flag: country?.flags?.svg,
     population: country?.population,
     capital: country?.capital?.[0] ?? '',
     region: country?.region
