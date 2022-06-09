@@ -53,6 +53,20 @@ const Home: NextPage<HomeProps> = ({ countries }) => {
     router.push(`/?region=${region}`, undefined, { shallow: true })
   }
 
+  const handleNameFilter = (name: string): void => {
+    if (name) {
+      setCountryList((oldCountryList) =>
+        oldCountryList.filter((oldCountry) =>
+          oldCountry.name.toLowerCase().includes(name.toLowerCase())
+        )
+      )
+
+      return
+    }
+
+    return setCountryList(countries)
+  }
+
   return (
     <>
       <Head>
@@ -76,6 +90,7 @@ const Home: NextPage<HomeProps> = ({ countries }) => {
               placeholder="Country name"
               bg={useColorModeValue('lightElements', 'darkElements')}
               size={'lg'}
+              onChange={(event) => handleNameFilter(event.target.value)}
             />
           </Box>
 
