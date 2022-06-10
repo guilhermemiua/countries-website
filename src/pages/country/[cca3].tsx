@@ -1,5 +1,6 @@
 import { Box } from '@chakra-ui/react'
 import { GetStaticPropsContext, NextPage } from 'next'
+import { ParsedUrlQuery } from 'querystring'
 import Container from '../../components/Container'
 import CountryDetails from '../../components/CountryDetails'
 import {
@@ -65,10 +66,16 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }: GetStaticPropsContext) {
-  const { cca3 } = params
+interface Params extends ParsedUrlQuery {
+  cca3: string
+}
 
-  const getCountryByCCA3Response = await getCountryByCCA3(cca3)
+export async function getStaticProps({
+  params
+}: GetStaticPropsContext<Params>) {
+  const { cca3 } = params as Params
+
+  const getCountryByCCA3Response = await getCountryByCCA3(cca3 as string)
   const country = countryMapper(getCountryByCCA3Response[0])
 
   return {
