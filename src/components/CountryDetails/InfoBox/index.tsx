@@ -50,24 +50,16 @@ const InfoBox = ({ country }: InfoBoxProps) => {
 
       <Box>
         <Text
-          display={{ base: 'block', lg: 'inline-block' }}
           fontWeight="semibold"
-          mb={{ base: 2.5, lg: 0 }}
-          mr={{ base: 0, lg: 2.5 }}
+          mb={5}
           color={useColorModeValue('lightText', 'darkText')}
         >
           Border Countries:
         </Text>
 
-        <Flex
-          display={'inline-flex'}
-          flexWrap="wrap"
-          justifyContent={'space-between'}
-        >
-          {country.borders.map((border) => (
-            <BorderCountryBadge key={border} name={border} />
-          ))}
-        </Flex>
+        {country.borders.map((border) => (
+          <BorderCountryBadge key={border} name={border} />
+        ))}
       </Box>
     </Flex>
   )
