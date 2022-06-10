@@ -15,20 +15,16 @@ import { Country } from '../types/Country'
 import { sort } from 'fast-sort'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import countryMapper from '../util/mappers/countryMapper'
 
 type HomeProps = {
   countries: Country[]
 }
 
 const countriesMapper = (countries: CountryResponse[]): Country[] => {
-  const countriesMapped: Country[] = countries.map((country) => ({
-    name: country?.name?.common,
-    flag: country?.flags?.svg,
-    population: country?.population,
-    capital: country?.capital?.[0] ?? '',
-    region: country?.region,
-    cca3: country?.cca3
-  }))
+  const countriesMapped: Country[] = countries.map((country) =>
+    countryMapper(country)
+  )
 
   const countriesSorted: Country[] = sort(countriesMapped).asc(
     (country) => country.name

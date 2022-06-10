@@ -3,36 +3,12 @@ import { GetStaticPropsContext, NextPage } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import Container from '../../components/Container'
 import CountryDetails from '../../components/CountryDetails'
-import {
-  CountryResponse,
-  getCountries,
-  getCountryByCCA3
-} from '../../services/countries'
+import { getCountries, getCountryByCCA3 } from '../../services/countries'
 import { Country } from '../../types/Country'
+import countryMapper from '../../util/mappers/countryMapper'
 
 type ViewCountryDetailsByCCA3Props = {
   country: Country
-}
-
-const countryMapper = (country: CountryResponse): Country => {
-  const countryMapped: Country = {
-    nativeName: Object.values(country.name.nativeName)[0].official,
-    name: country?.name?.common,
-    flag: country?.flags?.svg,
-    population: country?.population,
-    capital: country?.capital?.[0] ?? '',
-    region: country?.region,
-    cca3: country?.cca3,
-    topLevelDomains: country.tld,
-    subregion: country.subregion,
-    languages: Object.values(country.languages),
-    currencies: Object.values(country.currencies).map(
-      (currency) => currency.name
-    ),
-    borders: country.borders
-  }
-
-  return countryMapped
 }
 
 const ViewCountryDetailsByCCA3: NextPage<ViewCountryDetailsByCCA3Props> = ({
