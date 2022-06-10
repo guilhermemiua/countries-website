@@ -35,16 +35,16 @@ const InfoBox = ({ country }: InfoBoxProps) => {
         my={{ base: 5, lg: 10 }}
       >
         <Flex direction={'column'}>
-          <Info label="Native Name" value="Ecuador" />
-          <Info label="Population" value="Ecuador" />
-          <Info label="Region" value="Ecuador" />
-          <Info label="Sub Region" value="Ecuador" />
-          <Info label="Capital" value="Ecuador" />
+          <Info label="Native Name" value={country.nativeName} />
+          <Info label="Population" value={`${country.population}`} />
+          <Info label="Region" value={country.region} />
+          <Info label="Sub Region" value={country.subregion} />
+          <Info label="Capital" value={country.capital} />
         </Flex>
         <Flex direction={'column'} mt={{ base: 5, lg: 0 }}>
-          <Info label="Top Level Domain" value="Ecuador" />
-          <Info label="Currencies" value="Ecuador" />
-          <Info label="Languages" value="Ecuador" />
+          <Info label="Top Level Domain" value={country.topLevelDomains} />
+          <Info label="Currencies" value={country.currencies} />
+          <Info label="Languages" value={country.languages} />
         </Flex>
       </Flex>
 
@@ -59,7 +59,15 @@ const InfoBox = ({ country }: InfoBoxProps) => {
           Border Countries:
         </Text>
 
-        <BorderCountryBadge name="France" />
+        <Flex
+          display={'inline-flex'}
+          flexWrap="wrap"
+          justifyContent={'space-between'}
+        >
+          {country.borders.map((border) => (
+            <BorderCountryBadge key={border} name={border} />
+          ))}
+        </Flex>
       </Box>
     </Flex>
   )

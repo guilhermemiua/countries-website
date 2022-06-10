@@ -1,6 +1,11 @@
 export type CountryResponse = {
   name: {
     common: string
+    nativeName: {
+      [key: string]: {
+        official: string
+      }
+    }
   }
   flags: {
     svg: string
@@ -9,6 +14,17 @@ export type CountryResponse = {
   population: number
   capital: string[]
   region: string
+  subregion: string
+  tld: string[]
+  currencies: {
+    [key: string]: {
+      name: string
+    }
+  }
+  languages: {
+    [key: string]: string
+  }
+  borders: string[]
 }
 
 export type GetCountriesVariables = {

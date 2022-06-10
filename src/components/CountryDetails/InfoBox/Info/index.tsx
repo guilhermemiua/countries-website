@@ -2,12 +2,12 @@ import { Box, useColorModeValue, Text } from '@chakra-ui/react'
 
 type InfoProps = {
   label: string
-  value: string
+  value: string | string[]
 }
 
 const Info = ({ label, value }: InfoProps) => {
   return (
-    <Box>
+    <Box mb={2.5}>
       <Text
         display={'inline'}
         fontWeight="semibold"
@@ -19,7 +19,9 @@ const Info = ({ label, value }: InfoProps) => {
         display={'inline'}
         color={useColorModeValue('lightText', 'darkText')}
       >
-        {value}
+        {Array.isArray(value)
+          ? value.map((v, index) => (index + 1 === value.length ? v : `${v}, `))
+          : value}
       </Text>
     </Box>
   )
