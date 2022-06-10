@@ -9,7 +9,7 @@ const Container = ({
   margin?: string
 }) => {
   return (
-    <Box maxW={'90%'} margin={margin}>
+    <Box maxW={{ base: '90%', md: '80%', lg: '80%' }} margin={margin}>
       {children}
     </Box>
   )

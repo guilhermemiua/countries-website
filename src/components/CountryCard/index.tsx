@@ -1,7 +1,7 @@
 import { Box, useColorModeValue, Flex } from '@chakra-ui/react'
 import Image from 'next/image'
 import { Country } from '../../types/Country'
-import InfoBox from './Info'
+import InfoBox from './InfoBox'
 
 type CountryCardProps = {
   country: Country

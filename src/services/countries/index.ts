@@ -1,4 +1,4 @@
-export type GetCountriesResponse = {
+export type CountryResponse = {
   name: {
     common: string
   }
@@ -17,7 +17,7 @@ export type GetCountriesVariables = {
 
 export const getCountries = async ({
   region
-}: GetCountriesVariables): Promise<GetCountriesResponse[]> => {
+}: GetCountriesVariables): Promise<CountryResponse[]> => {
   let response
 
   if (region) {
@@ -33,7 +33,7 @@ export const getCountries = async ({
 
 export const getCountryByCCA3 = async (
   cca3: string
-): Promise<GetCountriesResponse[]> => {
+): Promise<CountryResponse[]> => {
   const response = await fetch(`https://restcountries.com/v3.1/alpha/${cca3}`)
 
   const data = await response.json()

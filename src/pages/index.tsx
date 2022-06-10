@@ -10,7 +10,7 @@ import type { NextPage, NextPageContext } from 'next'
 import Head from 'next/head'
 import Container from '../components/Container'
 import CountryCard from '../components/CountryCard'
-import { getCountries, GetCountriesResponse } from '../services/countries'
+import { getCountries, CountryResponse } from '../services/countries'
 import { Country } from '../types/Country'
 import { sort } from 'fast-sort'
 import { useState } from 'react'
@@ -20,7 +20,7 @@ type HomeProps = {
   countries: Country[]
 }
 
-const countriesMapper = (countries: GetCountriesResponse[]): Country[] => {
+const countriesMapper = (countries: CountryResponse[]): Country[] => {
   const countriesMapped: Country[] = countries.map((country) => ({
     name: country?.name?.common,
     flag: country?.flags?.svg,
@@ -80,7 +80,7 @@ const Home: NextPage<HomeProps> = ({ countries }) => {
         <Flex
           direction={['column', 'row']}
           justifyContent={{ base: 'center', md: 'space-between' }}
-          mt={10}
+          my={10}
         >
           <Box width={{ base: '100%', lg: '40%' }} mb={{ base: 5, sm: 0 }}>
             <Input
