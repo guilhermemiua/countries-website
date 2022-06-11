@@ -10,25 +10,21 @@ import type { NextPage, NextPageContext } from 'next'
 import Head from 'next/head'
 import Container from '../components/Container'
 import CountryCard from '../components/CountryCard'
-import Header from '../components/Header'
-import { getCountries, GetCountriesResponse } from '../services/countries'
+import { getCountries, CountryResponse } from '../services/countries'
 import { Country } from '../types/Country'
 import { sort } from 'fast-sort'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import countryMapper from '../util/mappers/countryMapper'
 
 type HomeProps = {
   countries: Country[]
 }
 
-const countriesMapper = (countries: GetCountriesResponse[]) => {
-  const countriesMapped: Country[] = countries.map((country) => ({
-    name: country?.name?.common,
-    flag: country?.flags?.svg,
-    population: country?.population,
-    capital: country?.capital?.[0] ?? '',
-    region: country?.region
-  }))
+const countriesMapper = (countries: CountryResponse[]): Country[] => {
+  const countriesMapped: Country[] = countries.map((country) =>
+    countryMapper(country)
+  )
 
   const countriesSorted: Country[] = sort(countriesMapped).asc(
     (country) => country.name
@@ -76,13 +72,11 @@ const Home: NextPage<HomeProps> = ({ countries }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
-      <Header />
-
       <Container margin="0 auto">
         <Flex
           direction={['column', 'row']}
           justifyContent={{ base: 'center', md: 'space-between' }}
-          mt={10}
+          my={10}
         >
           <Box width={{ base: '100%', lg: '40%' }} mb={{ base: 5, sm: 0 }}>
             <Input

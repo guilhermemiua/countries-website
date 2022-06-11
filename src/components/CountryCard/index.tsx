@@ -1,13 +1,20 @@
 import { Box, useColorModeValue, Flex } from '@chakra-ui/react'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import { Country } from '../../types/Country'
-import InfoBox from './Info'
+import InfoBox from './InfoBox'
 
 type CountryCardProps = {
   country: Country
 }
 
 const CountryCard = ({ country }: CountryCardProps) => {
+  const router = useRouter()
+
+  const handleCardOnClick = (cca3: string): void => {
+    router.push(`/country/${cca3}`)
+  }
+
   return (
     <Box
       bg={useColorModeValue('lightElements', 'darkElements')}
@@ -18,6 +25,8 @@ const CountryCard = ({ country }: CountryCardProps) => {
       width={{ base: 320, lg: 358.4 }}
       overflow="hidden"
       mb={10}
+      onClick={() => handleCardOnClick(country.cca3)}
+      cursor="pointer"
     >
       <Flex direction={'column'}>
         <Image
