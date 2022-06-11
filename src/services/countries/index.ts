@@ -1,7 +1,7 @@
 export type CountryResponse = {
   name: {
     common: string
-    nativeName: {
+    nativeName?: {
       [key: string]: {
         official: string
       }
@@ -14,17 +14,17 @@ export type CountryResponse = {
   population: number
   capital: string[]
   region: string
-  subregion: string
-  tld: string[]
-  currencies: {
+  subregion?: string
+  tld?: string[]
+  currencies?: {
     [key: string]: {
       name: string
     }
   }
-  languages: {
+  languages?: {
     [key: string]: string
   }
-  borders: string[]
+  borders?: string[]
 }
 
 export type GetCountriesVariables = {
