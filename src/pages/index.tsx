@@ -110,7 +110,8 @@ const Home: NextPage<HomeProps> = ({ countries }) => {
           templateColumns={{
             base: 'repeat(1, 0fr)',
             md: 'repeat(2, 0fr)',
-            lg: 'repeat(4, 0fr)'
+            lg: 'repeat(2, 0fr)',
+            xl: 'repeat(3, 0fr)'
           }}
           justifyContent={{ base: 'center', md: 'space-between' }}
           mt={10}
